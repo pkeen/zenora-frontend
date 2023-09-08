@@ -9,7 +9,7 @@ const SignUpForm = ({ setUser }) => {
 		password: "",
 		confirmPassword: "",
 	});
-	const [errors, setErrors] = useState([]); // used to display an error message e.g email already exists, passwords do not match
+	const [error, setError] = useState([]); // used to display an error message e.g email already exists, passwords do not match
 
 	const handleChange = (e) => {
 		setUserData({

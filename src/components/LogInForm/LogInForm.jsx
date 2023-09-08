@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as userService from "../../utils/users-service";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
+
 
 const LogInForm = ({ setUser }) => {
 	const [userData, setUserData] = useState({
@@ -8,6 +9,7 @@ const LogInForm = ({ setUser }) => {
 		password: "",
 	});
 	const [error, setError] = useState(""); // used to display an error message e.g email already exists, passwords do not match
+	const navigate = useNavigate();
 
 	const handleChange = (e) => {
 		setUserData({
@@ -23,6 +25,7 @@ const LogInForm = ({ setUser }) => {
 			const user = await userService.logIn(userData);
 			// ^ will resolve to user object contained in token
 			setUser(user);
+			navigate("/");
 		} catch (err) {
 			console.log(err);
 			// setError(err.message)
