@@ -33,14 +33,14 @@ const CourseList = () => {
 
 	return (
 		<div>
-			{/* {courses && courses.map((course, idx) => {
+			{courses && courses.map((course, idx) => {
 				return (
 					<div key={idx} className="course-card">
 						<h2>{course.title}</h2>
 						<p>by {course.User.name}</p>
 					</div>
 				);
-			})} */}
+			})}
 		</div>
 	);
 };

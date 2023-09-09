@@ -28,7 +28,9 @@ export default class ErrorBoundary extends React.Component {
         if (error) {
 			this.setState({errorMsg: error.message})
 		}
-        // return { hasError: true };
+        /**
+         * Lets add this to an error logger here
+         */
 		// Example "componentStack":
 		//   in ComponentThatThrows (created by App)
 		//   in ErrorBoundary (created by App)
