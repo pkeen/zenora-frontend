@@ -1,38 +1,5 @@
+import sendRequest from "./send-request";
 const BASE_URL = "/api/courses";
-
-// export const get = async () => {
-
-//     // try {
-//     //     const res = await fetch(BASE_URL);
-
-//     // } catch (err) {
-
-//     // }
-//     const res = await fetch(BASE_URL);
-
-// 	if (res.ok) {
-// 		try {
-// 			const data = await res.json();
-//             console.log("res.ok")
-// 			return data;
-// 		} catch (e) {
-// 			console.error("Failed to parse JSON:", e);
-// 			throw new Error("Failed to parse JSON");
-// 		}
-// 	} else {
-// 		let message = "Something really went wrong";
-// 		try {
-// 			const errorData = await res.json();
-// 			message = errorData.message || message;
-//             //    console.log("we are here");
-// 		} catch (e) {
-//             // console.log('second catch ')
-//             // return new Error(message);
-// 			// Failed to parse error response as JSON, fallback to default message
-// 		}
-// 		return new Error(message);
-// 	}
-// };
 
 const handleErrorOrParse = async (res) => {
 	if (!res.ok) {
@@ -74,7 +41,7 @@ export async function get() {
 export async function getWithFilters(filters = null) {
 	// filters should be null or an object containing filters
 	try {
-        let url = BASE_URL;
+		let url = BASE_URL;
 
 		if (filters) {
 			const params = new URLSearchParams();
@@ -102,3 +69,22 @@ export async function getWithFilters(filters = null) {
 		throw error;
 	}
 }
+
+// export const create = async (courseData) => {
+// 	try {
+// 		const response = await fetch(BASE_URL, {
+// 			method: "POST",
+// 			headers: {
+// 			"Content-Type": "application/json",
+// 			},
+// 			body: JSON.stringify(courseData),
+// 		})
+// 		const data = await handleErrorOrParse(response);
+// 	} catch (error) {
+// 		throw error;
+// 	}
+// }
+
+export const create = async (courseData) => {
+	return sendRequest(BASE_URL, "POST", courseData);
+};
