@@ -1,0 +1,15 @@
+.course-card {
+    border: 1px solid white;
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.input-or-h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-or-h2 > input {
+    flex-grow: 1;
+}

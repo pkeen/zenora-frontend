@@ -32,22 +32,12 @@ export default async function sendRequest(url, method = "GET", payload = null) {
 		options.headers.Authorization = `Bearer ${token}`;
 	}
 
-    try {
-        
-    } catch (err) {
-        
-    }
-    
 	const res = await fetch(url, options);
-
-	// if res.ok is false something went wrong
-	// if (!res.ok) {
-	// 	handleServerError(res);
-	// }
 
 	// return res.json();
 	if (res.ok) {
 		return res.json();
+		// server must always return JSON to not fail
 	} else {
 		throw await handleServerError(res);
 	}

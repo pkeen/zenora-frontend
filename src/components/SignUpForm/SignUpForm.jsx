@@ -9,14 +9,14 @@ const SignUpForm = ({ setUser }) => {
 		password: "",
 		confirmPassword: "",
 	});
-	const [error, setError] = useState([]); // used to display an error message e.g email already exists, passwords do not match
+	const [error, setError] = useState(""); // used to display an error message e.g email already exists, passwords do not match
 
 	const handleChange = (e) => {
 		setUserData({
 			...userData,
 			[e.target.name]: e.target.value,
 		});
-		setErrors([]);
+		setError("");
 	};
 
 	const handleSubmit = async (e) => {
@@ -30,7 +30,7 @@ const SignUpForm = ({ setUser }) => {
 			setUser(user);
 		} catch (err) {
 			console.log(err);
-			setErrors(...err.errors)
+			setError(err.message)
 		}
 	};
 

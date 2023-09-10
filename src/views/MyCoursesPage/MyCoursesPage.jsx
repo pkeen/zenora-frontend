@@ -9,17 +9,10 @@ const MyCoursesPage = () => {
 	const [courses, setCourses] = useState([]);
     const [user, setUser] = useContext(UserContext);   
 
-	// const getCourses = async () => {
-	// 	const courseData = await coursesAPI.get();
-	// 	// console.log(courses);
-	// 	setCourses(courseData);
-    //     // so with no try catch we will add that in the child component this time
-    //     // will this work???
-	// };
-
     const dataAPICall = async () => {
-        return await coursesAPI.getWithFilters({user: user.id});
-    }
+		return await coursesAPI.getWithFilters({ userId: user.id });
+		// the field key must match the field key in the DB! To be parsed as an int automatically
+	}
 
 	return (
 		<div>

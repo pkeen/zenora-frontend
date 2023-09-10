@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { create } from "../../utils/courses-api";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const CreateCourseForm = () => {
 	const [courseData, setCourseData] = useState({
 		title: "",
 	});
 	const [error, setError] = useState("");
+	const navigate = useNavigate();
 
 	const handleChange = (e) => {
 		setCourseData((prev) => {
@@ -18,6 +20,7 @@ const CreateCourseForm = () => {
 		e.preventDefault();
 		try {
 			await create(courseData);
+			navigate("/my-courses"); // go back to my course page for now
 		} catch (err) {
 			console.log("back at component", err);
 			setError(err.message);

@@ -1,13 +1,29 @@
 import * as usersAPI from "./users-api";
 
+const storeTokenInLocalStorage = (data) => {
+	// console.log(data.token);
+	data.token ? console.log("yes token") : console.log("no token"); // check
+	if (data.token) {
+		localStorage.setItem("token", data.token);
+	} else {
+		throw Error("Token format invalid, try again");
+	}
+};
+
 export const signUp = async (userData) => {
-	const token = await usersAPI.signUp(userData);
-	localStorage.setItem("token", token);
+	const data = await usersAPI.signUp(userData);
+	// if (data.token) {
+	// 	console.log('token found in json');
+	// }
+	// localStorage.setItem("token", token);
+	storeTokenInLocalStorage(data);
+
 	return getUser();
 };
 
 export const getToken = () => {
 	// getItem returns null if there's no string
+	// but what if string is wrong format I dont want to store JSON object
 	const token = localStorage.getItem("token");
 
 	if (!token) return null;
@@ -35,8 +51,7 @@ export const logOut = async () => {
 };
 
 export const logIn = async (userData) => {
-    const token = await usersAPI.logIn(userData);
-	localStorage.setItem("token", token);
+	const data = await usersAPI.logIn(userData);
+	storeTokenInLocalStorage(data);
 	return getUser();
-}
-
+};

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as coursesAPI from "../../utils/courses-api";
 import useThrowAsyncError from "../../utils/hooks/useThrowAsyncError";
+import CourseCard from "../CourseCard/CourseCard";
 
 const CourseList = () => {
 	const [courses, setCourses] = useState([]);
@@ -35,10 +36,7 @@ const CourseList = () => {
 		<div>
 			{courses && courses.map((course, idx) => {
 				return (
-					<div key={idx} className="course-card">
-						<h2>{course.title}</h2>
-						<p>by {course.User.name}</p>
-					</div>
+					<CourseCard key={idx} course={course} />
 				);
 			})}
 		</div>

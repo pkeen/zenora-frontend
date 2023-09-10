@@ -22,10 +22,10 @@ const handleServerError = async (res) => {
 	let message = "We're sorry, something went wrong";
 	try {
 		const data = await res.json();
-		console.log("server error", data.error.message);
+		// console.log("server error", data.error.message);
 		if (data.error && data.error.message) {
 			message = data.error.message;
-			console.log("getting here");
+			// console.log("getting here");
 		}
 	} catch (err) {
 		console.log("Error parsing response:", err);
