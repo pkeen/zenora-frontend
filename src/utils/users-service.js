@@ -1,24 +1,12 @@
 import * as usersAPI from "./users-api";
 
 const storeTokenInLocalStorage = (data) => {
-	// console.log(data.token);
-	data.token ? console.log("yes token") : console.log("no token"); // check
+	// store token in local storage but only if json has a token property
 	if (data.token) {
 		localStorage.setItem("token", data.token);
 	} else {
 		throw Error("Token format invalid, try again");
 	}
-};
-
-export const signUp = async (userData) => {
-	const data = await usersAPI.signUp(userData);
-	// if (data.token) {
-	// 	console.log('token found in json');
-	// }
-	// localStorage.setItem("token", token);
-	storeTokenInLocalStorage(data);
-
-	return getUser();
 };
 
 export const getToken = () => {
@@ -47,6 +35,12 @@ export const getUser = () => {
 
 export const logOut = async () => {
 	localStorage.removeItem("token");
+	return getUser();
+};
+
+export const signUp = async (userData) => {
+	const data = await usersAPI.signUp(userData);
+	storeTokenInLocalStorage(data);
 	return getUser();
 };
 

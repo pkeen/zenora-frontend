@@ -10,7 +10,7 @@ const MyCoursesPage = () => {
     const [user, setUser] = useContext(UserContext);   
 
     const dataAPICall = async () => {
-		return await coursesAPI.getWithFilters({ userId: user.id });
+		return await coursesAPI.get({ userId: user.id });
 		// the field key must match the field key in the DB! To be parsed as an int automatically
 	}
 

@@ -4,15 +4,7 @@ import CourseList from "../../components/CourseList/CourseList";
 import './CoursePage.css';
 
 const CoursesPage = () => {
-	// const [courses, setCourses] = useState([]);
-
-	// useEffect(() => {
-	// 	const getCourses = async () => {
-	// 		const courses = await coursesAPI.get();
-	// 		setCourses(courses);
-	// 	};
-	// 	getCourses();
-	// }, []);
+	
 
 	return (
 		<div>

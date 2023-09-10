@@ -5,11 +5,7 @@ import CourseCard from "../CourseCard/CourseCard";
 
 const CourseList = () => {
 	const [courses, setCourses] = useState([]);
-	// const [error, setError] = useState(null);
     const throwAsyncError = useThrowAsyncError();
-	// useEffect(() => {
-	//     throw new Error('my error')
-	// })
 
 	useEffect(() => {
 		const getCourses = async () => {
@@ -28,9 +24,6 @@ const CourseList = () => {
 		getCourses();
 	}, []);
 
-	// if (error) {
-	//     throw error;
-	// }
 
 	return (
 		<div>

@@ -34,10 +34,9 @@ export default async function sendRequest(url, method = "GET", payload = null) {
 
 	const res = await fetch(url, options);
 
-	// return res.json();
 	if (res.ok) {
 		return res.json();
-		// server must always return JSON to not fail
+		// server must always return JSON or will cause an error
 	} else {
 		throw await handleServerError(res);
 	}

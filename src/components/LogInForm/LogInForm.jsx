@@ -28,7 +28,7 @@ const LogInForm = ({ setUser }) => {
 			navigate("/");
 		} catch (err) {
 			console.log(err);
-			// setError(err.message)
+			setError(err.message)
 		}
 	};
 
