@@ -3,7 +3,14 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [react()],
+	plugins: [
+		react({
+			jsxImportSource: "@emotion/react",
+			babel: {
+				plugins: ["@emotion/babel-plugin"],
+			},
+		}),
+	],
 	server: {
 		proxy: {
 			"/api": {
@@ -12,6 +19,11 @@ export default defineConfig({
 				// rewrite: (path) => path.replace(/^\/api/, ""),
 			},
 		},
-    // cors: false
+		// cors: false
 	},
+	// resolve: {
+	// 	alias: {
+	// 		"@mui/styled-engine": "@emotion/styled",
+	// 	},
+	// },
 });

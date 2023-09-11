@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import CoursesPage from "../views/CoursesPage/CoursesPage";
 import MyCoursesPage from "../views/MyCoursesPage/MyCoursesPage";
 import CreateCoursePage from "../views/CourseCreatePage/CreateCoursePage";
+import ThemeProvider from "../themes/ThemeProvider";
 
 export const UserContext = createContext([]);
 
