@@ -4,6 +4,31 @@ const GlobalStyles = ({ theme }) => {
 	return (
 		<Global
 			styles={css`
+				/* CSS RESET STYLES */
+				html, body, div, span, applet, object, iframe,
+				h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+				a, abbr, acronym, address, big, cite, code,
+				del, dfn, em, img, ins, kbd, q, s, samp,
+				small, strike, strong, sub, sup, tt, var,
+				b, u, i, center,
+				dl, dt, dd, ol, ul, li,
+				fieldset, form, label, legend,
+				table, caption, tbody, tfoot, thead, tr, th, td,
+				article, aside, canvas, details, embed, 
+				figure, figcaption, footer, header, hgroup, 
+				menu, nav, output, ruby, section, summary,
+				time, mark, audio, video {
+					margin: 0;
+					padding: 0;
+					border: 0;
+					/* font-size: 100%; */
+					font: inherit;
+					vertical-align: baseline;
+				},
+				* {
+					box-shadow: none
+				}
+				
 				:root {
 					font-family: Inter, system-ui, Avenir, Helvetica, Arial,
 						sans-serif;
@@ -14,7 +39,11 @@ const GlobalStyles = ({ theme }) => {
 					-webkit-text-size-adjust: 100%;
 					padding: 0,
 					margin: 0
+				},
+				html {
+					font-size: 14px;
 				}
+
 				,
 				*,
 				*::before,
@@ -34,7 +63,7 @@ const GlobalStyles = ({ theme }) => {
 				#root {
 					width: 100vw;
 					min-height: 100vh;
-					margin: 0 auto;
+					/* margin: 0 auto; */
 					/* padding: 2rem; */
 					text-align: center;
 				}
@@ -48,6 +77,8 @@ const GlobalStyles = ({ theme }) => {
 				a:hover {
 					color: #535bf2;
 				}
+
+				
 			`}
 		/>
 	);

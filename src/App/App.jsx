@@ -7,11 +7,17 @@ import CoursesPage from "../views/CoursesPage/CoursesPage";
 import MyCoursesPage from "../views/MyCoursesPage/MyCoursesPage";
 import CreateCoursePage from "../views/CourseCreatePage/CreateCoursePage";
 import ThemeProvider from "../themes/ThemeProvider";
+import CourseDetailPage from "../views/CourseDetailPage";
 
 export const UserContext = createContext([]);
+export const OwnedCoursesContext = createContext();
 
 const App = () => {
 	const [user, setUser] = useState(getUser());
+
+	const [ownedCourses, setOwnedCourses] = useState([]); // array of courses PURCHASED by user
+
+	
 
 	return (
 		<UserContext.Provider value={[user, setUser]}>
@@ -21,7 +27,14 @@ const App = () => {
 					<Routes>
 						<Route path="/" element={<CoursesPage />} />
 						<Route path="/my-courses" element={<MyCoursesPage />} />
-						<Route path="/courses/create" element={<CreateCoursePage />} />
+						<Route
+							path="/courses/create"
+							element={<CreateCoursePage />}
+						/>
+						<Route
+							path="/courses/:id"
+							element={<CourseDetailPage />}
+						/>
 					</Routes>
 				) : (
 					<AuthPage setUser={setUser} />

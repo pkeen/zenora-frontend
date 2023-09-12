@@ -3,6 +3,9 @@ import { UserContext } from "../../App/App";
 import "./CourseCard.css";
 import { purple } from "../../themes/color-palette";
 import Paragraph from "../Typography/Paragraph";
+import Typography from "../Typography/Typography";
+import CardLower from "./CardLower";
+import { Link } from 'react-router-dom';
 
 const CourseCard = ({ course, handleDelete, handleUpdate }) => {
 	const [user, setUser] = useContext(UserContext);
@@ -28,58 +31,88 @@ const CourseCard = ({ course, handleDelete, handleUpdate }) => {
 	};
 
 	return (
-		<div
-			css={{
-				border: "1px solid white",
-				borderRadius: "20px",
-				margin: "2rem",
-			}}
-		>
+		<Link to={`/courses/${course.id}`}>
 			<div
 				css={{
+					// border: "1px solid white",
+					borderRadius: "20px",
+					margin: "2rem",
 					display: "flex",
-					overflow: "hidden",
-					height: "10rem",
-					borderTopLeftRadius: "20px",
-					borderTopRightRadius: "20px",
+					flexDirection: "column",
+					transition: "transform 0.3s ease",
+					"&:hover": {
+						transform: "scale(1.05)",
+					},
 				}}
 			>
-				<img
-					src="https://picsum.photos/200/300"
+				{/* Image */}
+				<div
 					css={{
-						width: "100%",
-						height: "auto",
+						display: "flex",
+						overflow: "hidden",
+						height: "10rem",
+						borderTopLeftRadius: "20px",
+						borderTopRightRadius: "20px",
 					}}
-				></img>
-			</div>
-			<div className="input-or-h2">
-				{isUpdating ? (
-					<input
-						name="name"
-						value={title}
-						onChange={handleChange}
-					></input>
-				) : (
-					<h2>{course.title}</h2>
-				)}
-			</div>
-			<div>
-				<Paragraph>{course.description}</Paragraph>
-			</div>
-			<p style={{ color: `${purple[400]}` }} color={purple.purple400}>
-				by {course.User.name}
-			</p>
-			{user.id === course.userId && (
-				<div>
-					<button onClick={() => handleDelete(course.id)}>
-						Delete
-					</button>
-					<button onClick={handleChangeUpdating}>
-						{isUpdating ? "Save" : "Edit"}
-					</button>
+				>
+					<img
+						src="https://picsum.photos/500/150"
+						css={{
+							width: "100%",
+							height: "auto",
+						}}
+					></img>
 				</div>
-			)}
-		</div>
+				{/*  body */}
+				<CardLower>
+					{/* <div className="input-or-h2">
+						{isUpdating ? (
+							<input
+								name="name"
+								value={title}
+								onChange={handleChange}
+							></input>
+						) : (
+							// <h2>{course.title}</h2>
+							<Typography variant="h2">{course.title}</Typography>
+						)}
+					</div> */}
+					<div>
+						<Typography variant="h2">{course.title}</Typography>
+					</div>
+					<div>
+						{/* <Paragraph>{course.User.name}</Paragraph> */}
+						<Typography
+							variant="h3"
+							css={{
+								marginTop: "-.5rem",
+							}}
+						>
+							{course.User.name}
+						</Typography>
+					</div>
+					<div css={{
+						margin: '1rem'
+					}}>
+						<Paragraph>{course.description}</Paragraph>
+					</div>
+				</CardLower>
+
+				{/* <p style={{ color: `${purple[400]}` }} color={purple.purple400}>
+					by {course.User.name}
+				</p>
+				{user.id === course.userId && (
+					<div>
+						<button onClick={() => handleDelete(course.id)}>
+							Delete
+						</button>
+						<button onClick={handleChangeUpdating}>
+							{isUpdating ? "Save" : "Edit"}
+						</button>
+					</div>
+				)} */}
+			</div>
+		</Link>
 	);
 };
 

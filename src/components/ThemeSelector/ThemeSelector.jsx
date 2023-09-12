@@ -1,5 +1,7 @@
 import React, {useContext} from 'react';
 import ThemeContext from '../../themes/ThemeContext';
+import IconButton from '../IconButton';
+
 
 import { DarkMode } from "@mui/icons-material";
 import { LightMode } from '@mui/icons-material';
@@ -10,9 +12,9 @@ const ThemeSelector = () => {
     
     return (
 		<div>
-			<button onClick={toggleTheme} style={{ fontSize: "2rem" }}>
+			<IconButton onClick={toggleTheme} style={{ fontSize: "2rem" }} variant="ghost" size={'sm'}>
 				{theme === "light" ? <DarkMode /> : <LightMode />}
-			</button>
+			</IconButton>
 		</div>
 	);
 }

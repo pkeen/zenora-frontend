@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from "react";
+import * as coursesAPI from "../../utils/courses-api";
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import CourseList from "../../components/CourseList/CourseList";
 import './CoursePage.css';
 import H1 from "../../components/Typography/H1";
+import Typography from "../../components/Typography/Typography";
 
 const CoursesPage = () => {
-	
+	const [courses, setCourses] = useState([]);
+
+	 const dataAPICall = async () => {
+			return await coursesAPI.get(/*{ userId: user.id }*/);
+			// perhaps a filter could go here??
+			// the field key must match the field key in the DB! To be parsed as an int automatically
+		};
 
 	return (
 		<div>
-			<H1>Courses Page</H1>
-            <ErrorBoundary fallback={<p>uh oh!</p>}>
-			    <CourseList />
-            </ErrorBoundary>
+			<Typography variant={"h1"}>Courses Page</Typography>
+			<ErrorBoundary fallback={<p>uh oh!</p>}>
+				<CourseList
+					courses={courses}
+					setCourses={setCourses}
+					apiCall={dataAPICall}
+				/>
+			</ErrorBoundary>
 		</div>
 	);
 };

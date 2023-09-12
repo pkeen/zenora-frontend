@@ -9,9 +9,9 @@ const StyledLink = ({children, to}) => {
     const themeObject = useTheme();
     return (
         <Link to={to} css={{
-            color: (theme === 'light' ? themeObject.grey[700] : themeObject.grey[400]),
+            color: (theme === 'light' ? themeObject.colors.grey[700] : themeObject.colors.grey[400]),
             '&:hover': {
-                color: (theme === 'light' ? themeObject.grey[500] : themeObject.grey[600]),
+                color: (theme === 'light' ? themeObject.colors.grey[500] : themeObject.colors.grey[600]),
                 // textShadow: '0px -1px 2px',
             },
         }}>

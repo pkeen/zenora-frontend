@@ -1,5 +1,5 @@
 import sendRequest from "./send-request";
-const BASE_URL = "/api/courses";
+const BASE_URL = "/api/orders";
 
 const buildQueryURL = (url, filters) => {
 	if (filters) {
@@ -13,22 +13,6 @@ const buildQueryURL = (url, filters) => {
 export const get = async (filters = null) => {
 	// filters should be null or an object containing filters
 	const url = buildQueryURL(BASE_URL, filters);
+	console.log("url:", url);
 	return sendRequest(url);
 };
-
-export const getOne = async (id) => {
-	return sendRequest(`${BASE_URL}/${id}`);
-}
-
-export const create = async (courseData) => {
-	return sendRequest(BASE_URL, "POST", courseData);
-};
-
-export const destroy = async (courseId) => {
-	return sendRequest(`${BASE_URL}/${courseId}`, "DELETE");
-};
-
-export const update = async (courseId, payload) => {
-	return sendRequest(`${BASE_URL}/${courseId}`, "PUT", payload);
-};
-

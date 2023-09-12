@@ -6,7 +6,7 @@ import lightTheme from "./light-theme";
 import darkTheme from "./dark-theme";
 
 const ThemeProvider = ({ children }) => {
-	const [theme, setTheme] = useState("dark");
+	const [theme, setTheme] = useState("light");
 
 	const currentTheme = theme === "light" ? lightTheme : darkTheme;
 
@@ -21,6 +21,7 @@ const ThemeProvider = ({ children }) => {
 			<EmotionThemeProvider theme={currentTheme}>
                 <GlobalStyles theme={currentTheme}/> 
                 {children}
+
 			</EmotionThemeProvider>
 		</ThemeContext.Provider>
 	);

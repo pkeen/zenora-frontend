@@ -4,6 +4,7 @@ import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import CourseListExperimental from "../../components/CourseListExperimental/CourseListExperimental";
 import { UserContext } from "../../App/App";
 import H1 from "../../components/Typography/H1";
+import Typography from "../../components/Typography/Typography";
 
 
 const MyCoursesPage = () => {
@@ -17,7 +18,7 @@ const MyCoursesPage = () => {
 
 	return (
 		<div>
-			<H1>Courses Page</H1>
+			<Typography variant={'h1'}>Courses Page</Typography>
 			<ErrorBoundary fallback={<p>uh oh!</p>}>
 				<CourseListExperimental courses={courses} setCourses={setCourses} apiCall={dataAPICall}/>
 			</ErrorBoundary>
