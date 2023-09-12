@@ -17,7 +17,8 @@ const App = () => {
 
 	const [ownedCourses, setOwnedCourses] = useState([]); // array of courses PURCHASED by user
 
-	
+	// test env mode
+	console.log("mode:", import.meta.env.MODE);
 
 	return (
 		<UserContext.Provider value={[user, setUser]}>

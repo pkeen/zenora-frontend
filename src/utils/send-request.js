@@ -1,6 +1,14 @@
 import { getToken } from "./users-service";
 import handleServerError from "./errors/handleError";
 
+
+const addApiBaseInProduction = (url) => {
+	if (process.env.VERCEL_ENV === "production") {
+		return `https://zenora-backend-dcf1dab571f9.herokuapp.com/${url}`;
+	}
+	return url
+}
+
 /**
  * Sends a request to the specified URL with the specified options.
  *
@@ -31,6 +39,8 @@ export default async function sendRequest(url, method = "GET", payload = null) {
 
 		options.headers.Authorization = `Bearer ${token}`;
 	}
+
+	url = addApiBaseInProduction(url);
 
 	const res = await fetch(url, options);
 

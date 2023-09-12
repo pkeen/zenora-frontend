@@ -15,6 +15,7 @@ const CourseDetailPage = () => {
 	// then the rest loads and only fills what needs to change
 	const [course, setCourse] = useState();
 
+
 	let { id } = useParams();
 
 	console.log(id);
