@@ -7,7 +7,7 @@ const addApiBaseInProduction = (url) => {
 	// 	return `https://zenora-backend-dcf1dab571f9.herokuapp.com/${url}`;
 	// }
 	if (import.meta.env.MODE === "production") {
-		return `https://zenora-backend-dcf1dab571f9.herokuapp.com/${url}`;
+		return `https://zenora-backend-dcf1dab571f9.herokuapp.com${url}`;
 	}
 	return url
 }
