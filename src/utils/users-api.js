@@ -9,3 +9,7 @@ export const logIn = async (userData) => {
 	return sendRequest(`${BASE_URL}/login`, "POST", userData);
 };
 
+export const getUserPurchasedCourses = async (userId) => {
+	const url = `${BASE_URL}/${userId}/orders`;
+	return sendRequest(url);
+}

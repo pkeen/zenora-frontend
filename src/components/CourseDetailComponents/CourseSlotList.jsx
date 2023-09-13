@@ -13,7 +13,7 @@ const CourseSlotList = ({ courseSlots }) => {
 		<div
 			css={{
 				textAlign: "left",
-				margin: "1rem",
+				// margin: "1rem",
 				padding: "0.5rem",
 				border: `1px solid ${
 					theme === "light"
@@ -23,7 +23,9 @@ const CourseSlotList = ({ courseSlots }) => {
 				borderRadius: '1rem'
 			}}
 		>
-			<Typography variant="h5">Course Contents</Typography>
+			<Typography variant="h5" css={{
+				textDecoration: 'underline'
+			}}>Course Contents</Typography>
 			{courseSlots.map((slot, idx) => (
 				<CourseSlot slot={slot} key={idx} idx={idx+1} />
 			))}

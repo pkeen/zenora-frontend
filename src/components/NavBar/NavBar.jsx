@@ -14,7 +14,7 @@ const NavBar = ({ user }) => {
 				display: "flex",
 				justifyContent: "space-between",
 				alignItems: "center",
-				padding: "1rem",
+				padding: "1rem 0",
 			}}
 		>	
 			{/* <div css={{

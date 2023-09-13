@@ -21,6 +21,9 @@ export default defineConfig({
 		},
 		// cors: false
 	},
+	// optimizeDeps: {
+	// 	exclude: ["fsevents"],
+	// },
 	// resolve: {
 	// 	alias: {
 	// 		"@mui/styled-engine": "@emotion/styled",
