@@ -12,7 +12,7 @@ const ThemeSelector = () => {
     
     return (
 		<div>
-			<IconButton onClick={toggleTheme} style={{ fontSize: "2rem" }} variant="ghost" size={'sm'}>
+			<IconButton onClick={toggleTheme} style={{ fontSize: "1rem" }} variant="ghost" size={'sm'}>
 				{theme === "light" ? <DarkMode /> : <LightMode />}
 			</IconButton>
 		</div>

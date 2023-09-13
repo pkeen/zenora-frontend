@@ -1,15 +1,10 @@
 import { greyPalette } from "./color-palette";
-import { zenCreamPalette } from "./color-palette";
-import defaultTheme from "./default-theme";
+
+const breakpoints = [600, 800, 1000, 1200];
+
+const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
 export default {
-	...defaultTheme,
-	// backgroundColor: "#242424",
-	backgroundColor: greyPalette[900],
-	// textColor: "rgba(255, 255, 255, 0.87)",
-	textColor: greyPalette[50], // general white
-	paragraphColor: greyPalette[500],
-	// paragraphColor: 'red',
 	colors: {
 		grey: {
 			50: "#FAFAFA",
@@ -28,36 +23,36 @@ export default {
 		h1: {
 			fontSize: "1.75rem",
 			fontWeight: 800,
-			color: greyPalette[50],
 			margin: "1rem 0",
 		},
 		h2: {
 			fontSize: "1.5rem",
 			fontWeight: 700,
-			color: greyPalette[100],
 			margin: ".75rem 0",
 		},
 		h3: {
 			fontSize: "1.25rem",
 			fontWeight: 600,
-			color: greyPalette[300],
 			margin: ".33rem 0rem",
 		},
 		h4: {
 			fontSize: "1.25rem",
 			fontWeight: 500,
-			color: greyPalette[300],
 			margin: ".25rem 0rem",
 		},
 		h5: {
 			fontSize: "1.0rem",
 			fontWeight: 500,
-			color: greyPalette[400],
-			margin: ".125rem 0",
+			margin: ".125rem 0rem",
 		},
 		p: {
-			color: greyPalette[500],
 			fontSize: "1rem 0",
 		},
 	},
+	breakpoints: {
+        sm: mq[0],
+        md: mq[1],
+        lg: mq[2],
+        xl: mq[3]
+    }
 };

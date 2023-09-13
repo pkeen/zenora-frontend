@@ -24,7 +24,7 @@ const GlobalStyles = ({ theme }) => {
 					/* font-size: 100%; */
 					font: inherit;
 					vertical-align: baseline;
-				},
+				}
 				* {
 					box-shadow: none
 				}
@@ -37,14 +37,14 @@ const GlobalStyles = ({ theme }) => {
 					-webkit-font-smoothing: antialiased;
 					-moz-osx-font-smoothing: grayscale;
 					-webkit-text-size-adjust: 100%;
-					padding: 0,
+					padding: 0;
 					margin: 0
-				},
+				}
 				html {
 					font-size: 14px;
 				}
 
-				,
+				
 				*,
 				*::before,
 				*::after {
@@ -59,7 +59,7 @@ const GlobalStyles = ({ theme }) => {
 					width: 100vw;
 					min-height: 100vh;
 					color: ${theme.textColor}; // this should mostly be overriden 
-				},
+				}
 				#root {
 					width: 100vw;
 					min-height: 100vh;
@@ -67,13 +67,13 @@ const GlobalStyles = ({ theme }) => {
 					/* padding: 2rem; */
 					text-align: center;
 				}
-				,
+				
 				a {
 					font-weight: 500;
 					color: #646cff;
 					text-decoration: inherit;
 				}
-				,
+				
 				a:hover {
 					color: #535bf2;
 				}

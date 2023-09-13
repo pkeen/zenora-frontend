@@ -3,6 +3,7 @@ import * as coursesAPI from "../../utils/courses-api";
 import useThrowAsyncError from "../../utils/hooks/useThrowAsyncError";
 import CourseCard from "../CourseCard/CourseCard";
 import { Routes, Route } from "react-router-dom";
+import CoursesContainer from "../CoursesContainer";
 
 const CourseList = ({ courses, setCourses, apiCall }) => {
 	// const [courses, setCourses] = useState([]);
@@ -41,12 +42,12 @@ const CourseList = ({ courses, setCourses, apiCall }) => {
 	// }, []);
 
 	return (
-		<div>
+		<CoursesContainer>
 			{courses &&
 				courses.map((course, idx) => {
 					return <CourseCard key={idx} course={course} />;
 				})}
-		</div>
+		</CoursesContainer>
 	);
 };
 

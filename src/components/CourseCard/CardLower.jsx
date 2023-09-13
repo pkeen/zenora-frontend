@@ -19,6 +19,10 @@ const CardLower = ({ children }) => {
 				transition: 'background-color 0.5s',
 				borderBottomRightRadius: "20px",
 				borderBottomLeftRadius: "20px",
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'space-around',
+				padding: '0rem 5%'
 			}}
 		>
 			{children}

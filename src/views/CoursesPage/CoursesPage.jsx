@@ -5,6 +5,7 @@ import CourseList from "../../components/CourseList/CourseList";
 import './CoursePage.css';
 import H1 from "../../components/Typography/H1";
 import Typography from "../../components/Typography/Typography";
+import CoursesContainer from "../../components/CoursesContainer";
 
 const CoursesPage = () => {
 	const [courses, setCourses] = useState([]);
@@ -17,7 +18,7 @@ const CoursesPage = () => {
 
 	return (
 		<div>
-			<Typography variant={"h1"}>Courses Page</Typography>
+			<Typography variant={"h1"}>Discover Courses</Typography>
 			<ErrorBoundary fallback={<p>uh oh!</p>}>
 				<CourseList
 					courses={courses}

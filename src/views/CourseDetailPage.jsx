@@ -48,7 +48,7 @@ const CourseDetailPage = () => {
 					}}
 				>
 					<img
-						src="https://picsum.photos/500/150"
+						src="https://picsum.photos/500/300"
 						css={{
 							width: "100%",
 							height: "auto",
@@ -68,10 +68,10 @@ const CourseDetailPage = () => {
 							{course.User.name}
 						</Typography>
 					</div>
-                    <div>
-                        <CourseSlotList courseSlots={course.CourseSlots} />
-                    </div>
-					<Button css={{marginBottom: '1rem'}}>Buy Course</Button>
+					<div>
+						<CourseSlotList courseSlots={course.CourseSlots} />
+					</div>
+					<Button css={{ marginBottom: "1rem" }}>Buy Course</Button>
 				</CardLower>
 			</CourseDetailDiv>
 		);

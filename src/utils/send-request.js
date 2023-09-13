@@ -3,9 +3,7 @@ import handleServerError from "./errors/handleError";
 
 
 const addApiBaseInProduction = (url) => {
-	// if (process.env.VERCEL_ENV === "production") {
-	// 	return `https://zenora-backend-dcf1dab571f9.herokuapp.com/${url}`;
-	// }
+	
 	if (import.meta.env.MODE === "production") {
 		return `https://zenora-backend-dcf1dab571f9.herokuapp.com${url}`;
 	}
@@ -44,7 +42,6 @@ export default async function sendRequest(url, method = "GET", payload = null) {
 	}
 
 	url = addApiBaseInProduction(url);
-	console.log(url);
 
 	const res = await fetch(url, options);
 

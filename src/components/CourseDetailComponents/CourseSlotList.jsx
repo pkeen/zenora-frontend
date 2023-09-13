@@ -20,6 +20,7 @@ const CourseSlotList = ({ courseSlots }) => {
 						? currentTheme.colors.grey[400]
 						: currentTheme.colors.grey[700]
 				}`,
+				borderRadius: '1rem'
 			}}
 		>
 			<Typography variant="h5">Course Contents</Typography>

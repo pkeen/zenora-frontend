@@ -8,6 +8,7 @@ import MyCoursesPage from "../views/MyCoursesPage/MyCoursesPage";
 import CreateCoursePage from "../views/CourseCreatePage/CreateCoursePage";
 import ThemeProvider from "../themes/ThemeProvider";
 import CourseDetailPage from "../views/CourseDetailPage";
+import TestList from "../components/TestList";
 
 export const UserContext = createContext([]);
 export const OwnedCoursesContext = createContext();
@@ -24,22 +25,27 @@ const App = () => {
 		<UserContext.Provider value={[user, setUser]}>
 			<NavBar user={user} />
 			<main>
-				{user ? (
-					<Routes>
-						<Route path="/" element={<CoursesPage />} />
-						<Route path="/my-courses" element={<MyCoursesPage />} />
+				<Routes>
+					<Route path="/courses" element={<CoursesPage />} />
+					<Route path="/courses/:id" element={<CourseDetailPage />} />
+					{user ? (
+						<>
+							<Route
+								path="/my-courses"
+								element={<MyCoursesPage />}
+							/>
+							<Route
+								path="/courses/create"
+								element={<CreateCoursePage />}
+							/>
+						</>
+					) : (
 						<Route
-							path="/courses/create"
-							element={<CreateCoursePage />}
+							path="/*"
+							element={<AuthPage setUser={setUser} />}
 						/>
-						<Route
-							path="/courses/:id"
-							element={<CourseDetailPage />}
-						/>
-					</Routes>
-				) : (
-					<AuthPage setUser={setUser} />
-				)}
+					)}
+				</Routes>
 			</main>
 		</UserContext.Provider>
 	);

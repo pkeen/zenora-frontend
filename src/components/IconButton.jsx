@@ -14,7 +14,7 @@ const IconButton = ({
 
 	let css = {
         display: 'flex',
-		padding: "1rem",
+		padding: "0rem",
 		borderRadius: "3rem",
 		border: "none",
 		outline: "none",
@@ -51,7 +51,7 @@ const IconButton = ({
 	switch (size) {
 		case "sm": {
 			const extraCss = {
-				padding: ".5rem .75rem",
+				padding: "0.3rem .75rem",
 			};
 			css = { ...css, ...extraCss };
 		}
