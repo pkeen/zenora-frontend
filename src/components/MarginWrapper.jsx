@@ -7,6 +7,7 @@ const MarginWrapper = ({ children }) => {
 	return (
 		<div
 			css={{
+				border: '1px solid red', 
 				margin: "0 1rem",
 				[theme.breakpoints.sm]: {
 					margin: "0 2rem",

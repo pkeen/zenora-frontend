@@ -67,6 +67,10 @@ const GlobalStyles = ({ theme }) => {
 					/* padding: 2rem; */
 					text-align: center;
 				}
+
+				nav {
+					background-color: ${theme.backgroundColor};
+				}
 				
 				a {
 					font-weight: 500;
