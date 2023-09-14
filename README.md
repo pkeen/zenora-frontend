@@ -2,3 +2,5 @@
 
 ## Features
 * Works for JWT Auth
+
+![ERD](/public/images/ERD.png)

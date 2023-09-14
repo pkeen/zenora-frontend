@@ -4,7 +4,7 @@ import { UserContext } from "../../App/App";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 
-const LogOutButton = () => {
+const LogOutButton = ({className}) => {
 	const [user, setUser] = useContext(UserContext);
 	const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const LogOutButton = () => {
 		navigate("/");
 	};
 
-	return <Button variant="ghost" size="sm" onClick={handleLogOut}>Log out</Button>;
+	return <Button variant="ghost" size="sm" onClick={handleLogOut} className={className}>Log out</Button>;
 };
 
 export default LogOutButton;

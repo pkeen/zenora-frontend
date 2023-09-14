@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import StyledLink from "../Typography/StyledLink";
 import LogOutButton from "../LogOutButton/LogOutButton";
 import LogInNavButton from "../LogInNavButton";
 import SignUpNavButton from "../SignUpNavButton";
 import ThemeSelector from "../ThemeSelector/ThemeSelector";
 import Logo from "../Logo";
+import NavigationMenu from "../NavigationMenu";
 import { css } from "@emotion/react";
+import Hamburger from "../Hamburger";
+import { useTheme } from "@emotion/react";
 
 const NavBar = ({ user }) => {
+	const [isMobile, setIsMobile] = useState();
+
+	const theme = useTheme();
+
+	const hideSmallCss = {
+		[theme.breakpoints.sm.lower]: {
+			display: 'none'
+		}
+	};
+
 	return (
 		<nav
 			css={{
@@ -16,36 +29,38 @@ const NavBar = ({ user }) => {
 				alignItems: "center",
 				padding: "1rem 0",
 			}}
-		>	
-			{/* <div css={{
-				border: '1px solid blue',
-				display: 'flex'
-			}}> */}
-			<Logo />
-			<div css={css`
-				display: flex;
-				div {
-					margin-right: 1rem;
-				}
-			`}>
-				<StyledLink to="/courses">Courses</StyledLink>
+		>
+			<div
+				css={{
+					display: "flex",
+					alignItems: "center",
+					div: {
+						marginRight: "1rem",
+					},
+				}}
+			>
+				<Logo />
+				<NavigationMenu />
 			</div>
-			{/* <Link to="/">Courses</Link> */}
 
-			{user && <StyledLink to="/my-courses">My Courses</StyledLink>}
-			{user && <StyledLink to="/courses/create">Create Course</StyledLink>}
-			<div css={css`
-				display: flex;
-				align-items: center;
-				div {
-					margin-left: .75rem;
-				}
+			{/**
+			 * Hamburger or Button Row at sm +
+			 */}
 
-			`}>
-				<ThemeSelector />
-				{!user && <LogInNavButton />}
-				{!user && <SignUpNavButton/>}
-				{user && <LogOutButton />}
+			<div
+				css={css`
+					display: flex;
+					align-items: center;
+					div {
+						margin-left: 0.75rem;
+					}
+				`}
+			>
+				<ThemeSelector css={hideSmallCss} />
+				{!user && <LogInNavButton css={hideSmallCss} />}
+				{!user && <SignUpNavButton css={hideSmallCss} />}
+				{user && <LogOutButton css={hideSmallCss} />}
+				<Hamburger />
 			</div>
 		</nav>
 	);

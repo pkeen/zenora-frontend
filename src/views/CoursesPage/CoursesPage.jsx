@@ -3,7 +3,6 @@ import * as coursesAPI from "../../utils/courses-api";
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import CourseList from "../../components/CourseList/CourseList";
 import './CoursePage.css';
-import H1 from "../../components/Typography/H1";
 import Typography from "../../components/Typography/Typography";
 import CoursesContainer from "../../components/CoursesContainer";
 
@@ -18,7 +17,11 @@ const CoursesPage = () => {
 
 	return (
 		<div>
-			<Typography variant={"h1"}>Discover Courses</Typography>
+			<div css={{
+				padding: '3rem'
+			}}>
+				<Typography variant={"h1"}>Discover Courses</Typography>
+			</div>	
 			<ErrorBoundary fallback={<p>uh oh!</p>}>
 				<CourseList
 					courses={courses}

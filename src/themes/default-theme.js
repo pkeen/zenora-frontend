@@ -1,8 +1,13 @@
 import { greyPalette } from "./color-palette";
 
-const breakpoints = [600, 800, 1000, 1200];
+const breakpoints = [600, 800, 1000, 1200, 1400];
 
-const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
+const mq = breakpoints.map((bp) => {
+	return {
+		higher: `@media (min-width: ${bp}px)`,
+		lower: `@media (max-width: ${bp}px)`,
+	};
+});
 
 export default {
 	colors: {
@@ -50,9 +55,10 @@ export default {
 		},
 	},
 	breakpoints: {
-        sm: mq[0],
-        md: mq[1],
-        lg: mq[2],
-        xl: mq[3]
-    }
+		sm: mq[0],
+		md: mq[1],
+		lg: mq[2],
+		xl: mq[3],
+		xxl: mq[4],
+	},
 };

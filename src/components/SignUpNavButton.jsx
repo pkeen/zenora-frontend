@@ -1,10 +1,10 @@
 import Button from './Button';
 import { Link } from 'react-router-dom';
 
-const SignUpNavButton = () => {
+const SignUpNavButton = ({className}) => {
     return (
         <Link to='/'>
-            <Button size="sm">Sign Up</Button>
+            <Button size="sm" className={className}>Sign Up</Button>
         </Link>
     );
 }

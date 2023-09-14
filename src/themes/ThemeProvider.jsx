@@ -10,8 +10,6 @@ const ThemeProvider = ({ children }) => {
 
 	const currentTheme = theme === "light" ? lightTheme : darkTheme;
 
-    console.log(currentTheme)
-
 	const toggleTheme = () => {
 		setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
 	};
@@ -19,9 +17,8 @@ const ThemeProvider = ({ children }) => {
 	return (
 		<ThemeContext.Provider value={{ theme, toggleTheme }}>
 			<EmotionThemeProvider theme={currentTheme}>
-                <GlobalStyles theme={currentTheme}/> 
-                {children}
-
+				<GlobalStyles theme={currentTheme} />
+				{children}
 			</EmotionThemeProvider>
 		</ThemeContext.Provider>
 	);

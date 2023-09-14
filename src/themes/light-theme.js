@@ -5,6 +5,7 @@ import defaultTheme from "./default-theme";
 export default {
 	...defaultTheme, // spread in default theme
 	// textColor: "#213547",
+	
 	textColor: greyPalette[900],
 	backgroundColor: greyPalette[50],
 	paragraphColor: greyPalette[600],

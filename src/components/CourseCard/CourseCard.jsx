@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../App/App";
 import "./CourseCard.css";
-import { purple } from "../../themes/color-palette";
 import Paragraph from "../Typography/Paragraph";
 import Typography from "../Typography/Typography";
 import CardLower from "./CardLower";
@@ -57,7 +56,7 @@ const CourseCard = ({ course, handleDelete, handleUpdate }) => {
 						}}
 					>
 						<Paragraph>
-							{course.description.slice(0, 100)}...
+							{course.description && course.description.slice(0, 100)}...
 						</Paragraph>
 					</div>
 					<div>

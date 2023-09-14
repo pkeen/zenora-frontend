@@ -22,24 +22,7 @@ const CourseList = ({ courses, setCourses, apiCall }) => {
 		getCourses();
 
 		// OHHH SO THIS WORKS!!!
-	}, []);
-
-	// useEffect(() => {
-	// 	const getCourses = async () => {
-	// 		try {
-	// 			const courseData = await coursesAPI.get();
-	// 			// console.log(courses);
-	// 			setCourses(courseData);
-	// 		} catch (err) {
-	// 			console.log("we are getting to useEffect catch");
-	// 			// setError(() => {
-	// 			// 	throw new Error(err.message);
-	// 			// });
-	// 			throwAsyncError(err);
-	// 		}
-	// 	};
-	// 	getCourses();
-	// }, []);
+	}, []);	
 
 	return (
 		<CoursesContainer>
