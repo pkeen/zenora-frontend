@@ -1,62 +1,35 @@
-import { greyPalette } from "./color-palette";
-import { zenCreamPalette } from "./color-palette";
 import defaultTheme from "./default-theme";
+import { merge } from "lodash";
 
-export default {
-	...defaultTheme, // spread in default theme
-	// textColor: "#213547",
-	
-	textColor: greyPalette[900],
-	backgroundColor: greyPalette[50],
-	paragraphColor: greyPalette[600],
-	// colors: {
-	// 	grey: {
-	// 		50: "#FAFAFA",
-	// 		100: "#F5F5F5",
-	// 		200: "#EEEEEE",
-	// 		300: "#E0E0E0",
-	// 		400: "#BDBDBD",
-	// 		500: "#9E9E9E",
-	// 		600: "#757575",
-	// 		700: "#616161",
-	// 		800: "#424242",
-	// 		900: "#212121",
-	// 	},
-	// },
+const lightTheme = merge({}, defaultTheme, {
+	backgroundColor: defaultTheme.colors.grey[50],
 	typography: {
 		h1: {
-			fontSize: "1.75rem",
-			fontWeight: 800,
-			color: greyPalette[900],
-			margin: "1rem 0",
+			color: defaultTheme.colors.grey[900],
 		},
 		h2: {
-			fontSize: "1.5rem",
-			fontWeight: 700,
-			color: greyPalette[800],
-			margin: ".75rem 0",
+			color: defaultTheme.colors.grey[800],
 		},
 		h3: {
-			fontSize: "1.25rem",
-			fontWeight: 600,
-			color: greyPalette[700],
-			margin: ".33rem 0rem",
+			color: defaultTheme.colors.grey[700],
 		},
 		h4: {
-			fontSize: "1.25rem",
-			fontWeight: 500,
-			color: greyPalette[600],
-			margin: ".25rem 0rem",
+			color: defaultTheme.colors.grey[600],
 		},
 		h5: {
-			fontSize: "1.0rem",
-			fontWeight: 500,
-			color: greyPalette[600],
-			margin: ".125rem 0rem",
+			color: defaultTheme.colors.grey[500],
 		},
 		p: {
-			color: greyPalette[600],
-			fontSize: "1rem 0",
+			color: defaultTheme.colors.grey[600],
 		},
 	},
-};
+	globals: {
+		body: {
+			backgroundColor: defaultTheme.colors.grey[50],
+		},
+	},
+});
+
+lightTheme.globals = merge(lightTheme.globals, lightTheme.typography);
+
+export default lightTheme;

@@ -1,5 +1,3 @@
-import { greyPalette } from "./color-palette";
-
 const breakpoints = [600, 800, 1000, 1200, 1400];
 
 const mq = breakpoints.map((bp) => {
@@ -9,7 +7,10 @@ const mq = breakpoints.map((bp) => {
 	};
 });
 
-export default {
+const theme = {
+	root: {
+		baseFontSize: "16px",
+	},
 	colors: {
 		grey: {
 			50: "#FAFAFA",
@@ -26,7 +27,7 @@ export default {
 	},
 	typography: {
 		h1: {
-			fontSize: "1.75rem",
+			fontSize: "2rem",
 			fontWeight: 800,
 			margin: "1rem 0",
 		},
@@ -53,6 +54,15 @@ export default {
 		p: {
 			fontSize: "1rem 0",
 		},
+		a: {
+			fontSize: "1rem 0",
+		},
+	},
+	border: {
+		radius: {
+			round: "3rem",
+			md: "1rem",
+		},
 	},
 	breakpoints: {
 		sm: mq[0],
@@ -62,3 +72,18 @@ export default {
 		xxl: mq[4],
 	},
 };
+
+theme.globals = {
+	html: {
+		fontSize: theme.root.baseFontSize,
+	},
+	body: {
+		backgroundColor: theme.colors.grey[500],
+	},
+	"*": {
+		transition: "background 0.5 ease",
+	},
+	...theme.typography,
+};
+
+export default theme;
