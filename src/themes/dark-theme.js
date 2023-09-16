@@ -28,6 +28,9 @@ let darkTheme = merge({}, defaultTheme, {
 				color: defaultTheme.colors.grey[600],
 			},
 		},
+		label: {
+			color: defaultTheme.colors.grey[500],
+		},
 	},
 	globals: {
 		body: {

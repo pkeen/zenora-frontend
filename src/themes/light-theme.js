@@ -22,6 +22,15 @@ const lightTheme = merge({}, defaultTheme, {
 		p: {
 			color: defaultTheme.colors.grey[600],
 		},
+		a: {
+			color: defaultTheme.colors.grey[700],
+			"&: hover": {
+				color: defaultTheme.colors.grey[400],
+			},
+		},
+		label: {
+			color: defaultTheme.colors.grey[600],
+		},
 	},
 	globals: {
 		body: {
