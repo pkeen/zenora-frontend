@@ -1,6 +1,4 @@
 import React, { useContext, useState } from "react";
-import { UserContext } from "../../App/App";
-import "./CourseCard.css";
 import Paragraph from "../Typography/Paragraph";
 import Typography from "../Typography/Typography";
 import CardLower from "./CardLower";

@@ -17,8 +17,8 @@ const NavBar = ({ user }) => {
 
 	const hideSmallCss = {
 		[theme.breakpoints.sm.lower]: {
-			display: 'none'
-		}
+			display: "none",
+		},
 	};
 
 	return (
@@ -31,7 +31,7 @@ const NavBar = ({ user }) => {
 				position: "sticky",
 				top: 0,
 				zIndex: 1000, // Ensure the navbar stays above other content
-				transition: 'background-color 0.5 ease'
+				transition: "background-color 0.5 ease",
 			}}
 		>
 			<div
@@ -44,7 +44,16 @@ const NavBar = ({ user }) => {
 				}}
 			>
 				<Logo />
-				<NavigationMenu css={hideSmallCss} />
+				<NavigationMenu
+					css={[
+						hideSmallCss,
+						{
+							a: {
+								marginRight: "1rem",
+							},
+						},
+					]}
+				/>
 			</div>
 
 			{/**
