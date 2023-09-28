@@ -1,6 +1,4 @@
-# React Front-end CRUD app starter
+# Zenora App
+## Online Courses App for Creators
 
-## Features
-* Works for JWT Auth
-
-![ERD](/public/images/ERD.png)
+[Link to deployment](https://zenora.vercel.app/)
