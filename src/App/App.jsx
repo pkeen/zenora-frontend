@@ -10,6 +10,7 @@ import CreateCoursePage from "../views/CourseCreatePage/CreateCoursePage";
 import ThemeProvider from "../themes/ThemeProvider";
 import CourseInfoPage from "../views/CourseInfoPage";
 import MarginWrapper from "../components/MarginWrapper";
+import CourseContentView from "../views/CourseContentView";
 
 export const UserContext = createContext([]);
 export const PurchasedCoursesContext = createContext();
@@ -25,7 +26,7 @@ const App = () => {
 				const orderedCourses = await usersAPI.getUserOrderedCourses(
 					user.id
 				);
-				console.log("ordered courses", orderedCourses);
+				// console.log("ordered courses", orderedCourses);
 				setOrderedCourses(orderedCourses);
 			} catch (err) {
 				console.log(err);
@@ -35,7 +36,7 @@ const App = () => {
 	}, [user]);
 
 	// test env mode
-	console.log("mode:", import.meta.env.MODE);
+	// console.log("mode:", import.meta.env.MODE);
 
 	return (
 		<UserContext.Provider value={[user, setUser]}>
@@ -50,6 +51,10 @@ const App = () => {
 							<Route
 								path="/courses/:id/info"
 								element={<CourseInfoPage />}
+							/>
+							<Route
+								path="/courses/:id/content"
+								element={<CourseContentView />}
 							/>
 							{user ? (
 								<>

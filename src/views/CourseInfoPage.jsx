@@ -4,15 +4,12 @@ import Typography from "../components/Typography/Typography";
 import { getOne } from "../utils/courses-api";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import CourseDetailDiv from "../components/CourseInfoComponents/CourseDetailDiv";
-import CardLower from "../components/CourseCard/CardLower";
 import CourseSlotList from "../components/CourseInfoComponents/CourseSlotList";
-import Button from "../components/Button";
 import { useTheme } from "@emotion/react";
 import CourseTags from "../components/CourseTags";
 import { UserContext, PurchasedCoursesContext } from "../App/App";
 import * as ordersAPI from "../utils/orders-api";
-import { create } from "../utils/orders-api";
-import { Navigate } from "react-router-dom";
+import BuyOrGoToCourseButton from "../components/BuyOrGoToCourseButton";
 
 const CourseInfoPage = () => {
 	// experiment with a course being passable
@@ -42,26 +39,26 @@ const CourseInfoPage = () => {
 		getCourse();
 	}, [id]);
 
-	const handlePurchase = async () => {
+	// const handlePurchase = async () => {
 
-		if (orderedCourses.find(orderedCourse => orderedCourse.courseId === course.id)) {
-			console.log('going to course')
-			return;
-		}
+	// 	if (orderedCourses.find(orderedCourse => orderedCourse.courseId === course.id)) {
+	// 		console.log('going to course')
+	// 		return;
+	// 	}
 
-		try {
-			console.log("courseId:", course.id)
-			const order = await ordersAPI.create(course.id);
-			console.log(order);
-			setOrderedCourses((prev) => {
-				return {...prev, order}
-			})
-			console.log(orderedCourses);
-		} catch (err) {
-			console.log(err);
-		}
-	};
-	// console.log(course);
+	// 	try {
+	// 		console.log("courseId:", course.id)
+	// 		const order = await ordersAPI.create(course.id);
+	// 		console.log(order);
+	// 		setOrderedCourses((prev) => {
+	// 			return {...prev, order}
+	// 		})
+	// 		console.log(orderedCourses);
+	// 	} catch (err) {
+	// 		console.log(err);
+	// 	}
+	// };
+	// // console.log(course);
 
 	if (course) {
 		return (
@@ -140,12 +137,13 @@ const CourseInfoPage = () => {
 					<Typography>{course.description}</Typography>
 					<CourseTags />
 
-					<Button
+					{/* <Button
 						onClick={handlePurchase}
 						css={{ marginBottom: "1rem" }}
 					>
 						{orderedCourses.find(order => order.courseId === course.id) ? "Go to course" : "Buy Course"}
-					</Button>
+					</Button> */}
+					<BuyOrGoToCourseButton course={course} css={{marginBottom: "1rem"}}/>
 				</div>
 			</CourseDetailDiv>
 		);
