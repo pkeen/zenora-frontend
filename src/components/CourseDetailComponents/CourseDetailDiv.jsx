@@ -18,7 +18,7 @@ const CourseDetailDiv = ({ children }) => {
 				// "&:hover": {
 				// 	transform: "scale(1.05)",
 				// },
-				[theme.breakpoints.sm]: {
+				[theme.breakpoints.sm.higher]: {
 					gridTemplateColumns: '1fr 1fr',
 					margin: "3rem 0"
 				}

@@ -69,7 +69,7 @@ const CourseDetailPage = () => {
 						borderTopLeftRadius: "20px",
 						borderTopRightRadius: "20px",
 						order: "1",
-						[theme.breakpoints.sm]: {
+						[theme.breakpoints.sm.higher]: {
 							order: "2",
 						},
 					}}
@@ -87,7 +87,7 @@ const CourseDetailPage = () => {
 					css={{
 						textAlign: "left",
 						order: "2",
-						[theme.breakpoints.sm]: {
+						[theme.breakpoints.sm.higher]: {
 							order: "1",
 						},
 					}}

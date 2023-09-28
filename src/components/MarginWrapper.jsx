@@ -13,14 +13,14 @@ const MarginWrapper = ({ children }) => {
 					margin: "0 2rem",
 				},
 				[theme.breakpoints.md.higher]: {
-					margin: "0 4rem",
+					margin: "0 10%",
 				},
 				[theme.breakpoints.lg.higher]: {
-					margin: "0 7rem",
+					margin: "0 15%",
 				},
-				[theme.breakpoints.xl.higher]: {
-					margin: "0 9rem",
-				},
+				// [theme.breakpoints.xl.higher]: {
+				// 	margin: "0 9rem",
+				// },
 			}}
 		>
 			
