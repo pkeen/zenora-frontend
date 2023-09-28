@@ -6,7 +6,7 @@ const NavModule = ({ module, handleSelectContent }) => {
 
 	const handleClick = () => {
         setIsOpen(!isOpen);
-        handleSelectContent(module.title);
+        handleSelectContent(module.id, "module");
     }
 
 	return (

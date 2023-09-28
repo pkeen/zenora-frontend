@@ -1,9 +1,12 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getOne } from "../utils/courses-api";
 import CourseContentBox from "../components/CourseContentBox";
 import CourseContentNav from "../components/CourseContentNav";
-import * as lessonsApi from "../utils/lessons-api"
+import * as lessonsApi from "../utils/lessons-api";
+import * as modulesApi from "../utils/modules-api";
+import LessonContent from "./LessonContent";
+import ModuleContent from "./ModuleContent";
 
 const CourseContentView = () => {
 	const [course, setCourse] = useState();
@@ -26,25 +29,33 @@ const CourseContentView = () => {
 
 	const handleSelectContent = async (contentId, contentType) => {
 		let newContent;
-		if (contentType === 'lesson') {
-			newContent = await lessonsApi.getOne(contentId)
+		if (contentType === "lesson") {
+			const lesson = await lessonsApi.getOne(contentId);
+			newContent = <LessonContent lesson={lesson} />;
+		} else {
+			const module = await modulesApi.getOne(contentId);
+			newContent = <ModuleContent module={module} />;
 		}
-		setCurrentContent(newContent.title);
-	}
+		setCurrentContent(newContent);
+	};
 
 	console.log(course);
 
 	console.log(currentContent);
 
-    if (course) {
-        return (
+	if (course) {
+		return (
 			<div>
 				<h1 css={{ textAlign: "left" }}>{course.title}</h1>
-				<CourseContentNav courseSlots={course.CourseSlots} css={{border: '1px solid red', }} handleSelectContent={handleSelectContent}/>
+				<CourseContentNav
+					courseSlots={course.CourseSlots}
+					css={{ border: "1px solid red" }}
+					handleSelectContent={handleSelectContent}
+				/>
 				<CourseContentBox content={currentContent} />
 			</div>
 		);
-    }
+	}
 };
 
 export default CourseContentView;
