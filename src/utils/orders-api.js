@@ -18,6 +18,6 @@ const BASE_URL = "/api/orders";
 // };
 
 export const create = async (courseId) => {
-	return sendRequest(BASE_URL, "POST", courseId);
+	return sendRequest(BASE_URL, "POST", {courseId: courseId});
 }
 

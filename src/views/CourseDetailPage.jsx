@@ -10,8 +10,9 @@ import Button from "../components/Button";
 import { useTheme } from "@emotion/react";
 import CourseTags from "../components/CourseTags";
 import { UserContext, PurchasedCoursesContext } from "../App/App";
-// import * as ordersAPI from "../utils/orders-api";
+import * as ordersAPI from "../utils/orders-api";
 import { create } from "../utils/orders-api";
+import { Navigate } from "react-router-dom";
 
 const CourseDetailPage = () => {
 	// experiment with a course being passable
@@ -24,8 +25,6 @@ const CourseDetailPage = () => {
 	const { orderedCourses, setOrderedCourses } = useContext(
 		PurchasedCoursesContext
 	);
-
-	// console.log("user:", user);
 
 	let { id } = useParams();
 
@@ -43,18 +42,25 @@ const CourseDetailPage = () => {
 		getCourse();
 	}, [id]);
 
-	// const handlePurchase = async (courseId) => {
-	// 	try {
-	// 		console.log("courseId:",courseId)
-	// 		const order = ordersAPI.create(courseId);
-	// 		setOrderedCourses((prev) => {
-	// 			return {...prev, order}
-	// 		})
+	const handlePurchase = async () => {
 
-	// 	} catch (err) {
-	// 		console.log(err);
-	// 	}
-	// };
+		if (orderedCourses.find(orderedCourse => orderedCourse.courseId === course.id)) {
+			console.log('going to course')
+			return;
+		}
+		
+		try {
+			console.log("courseId:", course.id)
+			const order = await ordersAPI.create(course.id);
+			console.log(order);
+			setOrderedCourses((prev) => {
+				return {...prev, order}
+			})
+			console.log(orderedCourses);
+		} catch (err) {
+			console.log(err);
+		}
+	};
 	// console.log(course);
 
 	if (course) {
@@ -135,10 +141,10 @@ const CourseDetailPage = () => {
 					<CourseTags />
 
 					<Button
-						onClick={() => console.log("hello!")}
+						onClick={handlePurchase}
 						css={{ marginBottom: "1rem" }}
 					>
-						Buy Course
+						{orderedCourses.find(order => order.courseId === course.id) ? "Go to course" : "Buy Course"}
 					</Button>
 				</div>
 			</CourseDetailDiv>

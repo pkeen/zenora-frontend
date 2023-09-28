@@ -25,7 +25,7 @@ const App = () => {
 				const orderedCourses = await usersAPI.getUserOrderedCourses(
 					user.id
 				);
-				console.log(orderedCourses);
+				console.log("ordered courses", orderedCourses);
 				setOrderedCourses(orderedCourses);
 			} catch (err) {
 				console.log(err);
