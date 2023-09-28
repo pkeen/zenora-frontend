@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import Typography from "../components/Typography/Typography";
 import { getOne } from "../utils/courses-api";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
-import CourseDetailDiv from "../components/CourseDetailComponents/CourseDetailDiv";
+import CourseDetailDiv from "../components/CourseInfoComponents/CourseDetailDiv";
 import CardLower from "../components/CourseCard/CardLower";
-import CourseSlotList from "../components/CourseDetailComponents/CourseSlotList";
+import CourseSlotList from "../components/CourseInfoComponents/CourseSlotList";
 import Button from "../components/Button";
 import { useTheme } from "@emotion/react";
 import CourseTags from "../components/CourseTags";
@@ -14,7 +14,7 @@ import * as ordersAPI from "../utils/orders-api";
 import { create } from "../utils/orders-api";
 import { Navigate } from "react-router-dom";
 
-const CourseDetailPage = () => {
+const CourseInfoPage = () => {
 	// experiment with a course being passable
 	// thing might make for a good user experience as some detail is already loaded about the course
 	// then the rest loads and only fills what needs to change
@@ -48,7 +48,7 @@ const CourseDetailPage = () => {
 			console.log('going to course')
 			return;
 		}
-		
+
 		try {
 			console.log("courseId:", course.id)
 			const order = await ordersAPI.create(course.id);
@@ -152,4 +152,4 @@ const CourseDetailPage = () => {
 	}
 };
 
-export default CourseDetailPage;
+export default CourseInfoPage;

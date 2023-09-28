@@ -13,7 +13,7 @@ const CourseCard = ({ course, handleDelete, handleUpdate }) => {
 	// // const [title, setTitle] = useState("");
 
 	return (
-		<Link to={`/courses/${course.id}`}>
+		<Link to={`/courses/${course.id}/info`}>
 			<CardContainer>
 				{/* Image */}
 

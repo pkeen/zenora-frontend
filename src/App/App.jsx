@@ -8,7 +8,7 @@ import CoursesPage from "../views/CoursesPage/CoursesPage";
 import MyCoursesPage from "../views/MyCoursesPage/MyCoursesPage";
 import CreateCoursePage from "../views/CourseCreatePage/CreateCoursePage";
 import ThemeProvider from "../themes/ThemeProvider";
-import CourseDetailPage from "../views/CourseDetailPage";
+import CourseInfoPage from "../views/CourseInfoPage";
 import MarginWrapper from "../components/MarginWrapper";
 
 export const UserContext = createContext([]);
@@ -48,8 +48,8 @@ const App = () => {
 						<Routes>
 							<Route path="/courses" element={<CoursesPage />} />
 							<Route
-								path="/courses/:id"
-								element={<CourseDetailPage />}
+								path="/courses/:id/info"
+								element={<CourseInfoPage />}
 							/>
 							{user ? (
 								<>
