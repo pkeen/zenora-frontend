@@ -3,6 +3,7 @@ import * as userService from "../../utils/users-service";
 import { Link } from "react-router-dom";
 import Button from "../Button";
 import InputField from "../InputField";
+import Typography from "../Typography/Typography";
 
 const SignUpForm = ({ setUser }) => {
 	const [userData, setUserData] = useState({
@@ -48,7 +49,7 @@ const SignUpForm = ({ setUser }) => {
 				textAlign: "center",
 			}}
 		>
-			<h1 css={{ gridColumn: "span 2" }}>Sign up</h1>
+			<Typography variant="h1">Sign up</Typography>
 			{/* <label htmlFor="name">Name</label> */}
 			<InputField
 				type="text"
@@ -58,14 +59,6 @@ const SignUpForm = ({ setUser }) => {
 				onChange={handleChange}
 				label="Name"
 			/>
-			{/* <input
-				type="text"
-				name="name"
-				id="name"
-				value={userData.name}
-				onChange={handleChange}
-			/> */}
-			{/* <label htmlFor="email">Email</label> */}
 			<InputField
 				type="email"
 				name="email"
@@ -74,14 +67,6 @@ const SignUpForm = ({ setUser }) => {
 				onChange={handleChange}
 				label="Email"
 			/>
-			{/* <input
-				type="email"
-				name="email"
-				id="email"
-				value={userData.email}
-				onChange={handleChange}
-			/> */}
-			{/* <label htmlFor="password">Password</label> */}
 			<InputField
 				type="password"
 				name="password"
@@ -90,14 +75,6 @@ const SignUpForm = ({ setUser }) => {
 				onChange={handleChange}
 				label="Password"
 			/>
-			{/* <input
-				type="password"
-				name="password"
-				id="password"
-				value={userData.password}
-				onChange={handleChange}
-			/> */}
-			{/* <label htmlFor="confirmPassword">Confirm Password</label> */}
 			<InputField
 				type="password"
 				name="confirmPassword"
@@ -106,13 +83,6 @@ const SignUpForm = ({ setUser }) => {
 				onChange={handleChange}
 				label="Confirm Password"
 			/>
-			{/* <input
-				type="password"
-				name="confirmPassword"
-				id="confirmPassword"
-				value={userData.confirmPassword}
-				onChange={handleChange}
-			/> */}
 			<div
 				css={{
 					gridColumn: "span 2",

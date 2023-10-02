@@ -3,6 +3,7 @@ import * as userService from "../../utils/users-service";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../Button";
 import InputField from "../InputField";
+import Typography from "../Typography/Typography";
 
 const LogInForm = ({ setUser }) => {
 	const [userData, setUserData] = useState({
@@ -43,15 +44,7 @@ const LogInForm = ({ setUser }) => {
 				textAlign: "center",
 			}}
 		>
-			<h1 css={{ gridColumn: "span 2" }}>Log in</h1>
-			{/* <label htmlFor="email">Email</label>
-			<input
-				type="email"
-				name="email"
-				id="email"
-				value={userData.email}
-				onChange={handleChange}
-			/> */}
+			<Typography variant="h1" css={{ gridColumn: "span 2" }}>Log in</Typography>
 			<InputField
 				type="email"
 				name="email"
@@ -68,14 +61,6 @@ const LogInForm = ({ setUser }) => {
 				onChange={handleChange}
 				label="Password"
 			/>
-			{/* <label htmlFor="password">Password</label>
-			<input
-				type="password"
-				name="password"
-				id="password"
-				value={userData.password}
-				onChange={handleChange}
-			/> */}
 			<div
 				css={{
 					gridColumn: "span 2",
