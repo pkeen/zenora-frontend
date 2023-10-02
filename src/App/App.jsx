@@ -32,7 +32,9 @@ const App = () => {
 				console.log(err);
 			}
 		};
-		getPurchasedCourses();
+		if (user) {
+			getPurchasedCourses();
+		}
 	}, [user]);
 
 	// test env mode

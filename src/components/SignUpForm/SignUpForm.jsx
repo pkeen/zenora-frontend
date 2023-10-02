@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as userService from "../../utils/users-service";
 import { Link } from "react-router-dom";
+import Button from "../Button";
 
 const SignUpForm = ({ setUser }) => {
 	const [userData, setUserData] = useState({
@@ -37,7 +38,16 @@ const SignUpForm = ({ setUser }) => {
 	const disabled = userData.password !== userData.confirmPassword;
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form
+			onSubmit={handleSubmit}
+			css={{
+				display: "grid",
+				gridTemplateColumns: "1fr 1fr",
+				width: "400px",
+				textAlign: "center",
+			}}
+		>
+			<h1 css={{gridColumn: 'span 2'}}>Sign up</h1>
 			<label htmlFor="name">Name</label>
 			<input
 				type="text"
@@ -70,11 +80,23 @@ const SignUpForm = ({ setUser }) => {
 				value={userData.confirmPassword}
 				onChange={handleChange}
 			/>
-			<button type="submit" disabled={disabled}>
-				Sign Up
-			</button>
-			<p className="error-message">{error}</p>
-			<Link to="/login">Already have an account? Log in here</Link>
+			<div css={{
+				gridColumn: "span 2"
+			}}>
+				<Button type="submit" disabled={disabled}>
+					Sign Up
+				</Button>
+			</div>
+			<div css={{
+				gridColumn: "span 2"
+			}}>
+				<p className="error-message">{error}</p>
+			</div>
+			<div css={{
+				gridColumn: "span 2"
+			}}>
+				<Link to="/login">Already have an account? Log in here</Link>
+			</div>
 		</form>
 	);
 };

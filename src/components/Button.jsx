@@ -51,8 +51,17 @@ const Button = ({
             const extraCss = {
                 padding: '.5rem .75rem'
             }
-            css = {...css, ...extraCss}
+            css = { ...css, ...extraCss };
+            break;
         }
+		case "md": {
+			const extraCss = {
+				padding: '.75rem .85rem',
+				margin: '1rem'
+			}
+			css = { ...css, ...extraCss };
+            break;
+		}
     }
 
 	return (
@@ -63,7 +72,7 @@ const Button = ({
 				type={type}
 				onClick={onClick}
 			>
-				{children}{" "}
+				{children}
 			</button>
 		</div>
 	);

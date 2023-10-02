@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as userService from "../../utils/users-service";
 import { Link , useNavigate} from "react-router-dom";
+import Button from "../Button";
 
 
 const LogInForm = ({ setUser }) => {
@@ -33,7 +34,16 @@ const LogInForm = ({ setUser }) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form
+			onSubmit={handleSubmit}
+			css={{
+				display: "grid",
+				gridTemplateColumns: "1fr 1fr",
+				width: "400px",
+				textAlign: "center",
+			}}
+		>
+			<h1 css={{ gridColumn: "span 2" }}>Log in</h1>
 			<label htmlFor="email">Email</label>
 			<input
 				type="email"
@@ -50,9 +60,17 @@ const LogInForm = ({ setUser }) => {
 				value={userData.password}
 				onChange={handleChange}
 			/>
-			<button type="submit">Log In</button>
-			<p className="error-message">{error}</p>
-            <Link to='/'>New here? Sign up</Link>
+			<div
+				css={{
+					gridColumn: "span 2",
+				}}
+			>
+				<Button type="submit" size="md">Log In</Button>
+			</div>
+			<p className="error-message" css={{gridColumn: 'span 2'}}>{error}</p>
+			<div css={{ gridColumn: "span 2" }}>
+				<Link to="/">New here? Sign up</Link>
+			</div>
 		</form>
 	);
 };
