@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as userService from "../../utils/users-service";
 import { Link } from "react-router-dom";
 import Button from "../Button";
+import InputField from "../InputField";
 
 const SignUpForm = ({ setUser }) => {
 	const [userData, setUserData] = useState({
@@ -31,7 +32,7 @@ const SignUpForm = ({ setUser }) => {
 			setUser(user);
 		} catch (err) {
 			console.log(err);
-			setError(err.message)
+			setError(err.message);
 		}
 	};
 
@@ -41,60 +42,98 @@ const SignUpForm = ({ setUser }) => {
 		<form
 			onSubmit={handleSubmit}
 			css={{
-				display: "grid",
-				gridTemplateColumns: "1fr 1fr",
+				display: "flex",
+				flexDirection: "column",
 				width: "400px",
 				textAlign: "center",
 			}}
 		>
-			<h1 css={{gridColumn: 'span 2'}}>Sign up</h1>
-			<label htmlFor="name">Name</label>
-			<input
+			<h1 css={{ gridColumn: "span 2" }}>Sign up</h1>
+			{/* <label htmlFor="name">Name</label> */}
+			<InputField
 				type="text"
 				name="name"
 				id="name"
 				value={userData.name}
 				onChange={handleChange}
+				label="Name"
 			/>
-			<label htmlFor="email">Email</label>
-			<input
+			{/* <input
+				type="text"
+				name="name"
+				id="name"
+				value={userData.name}
+				onChange={handleChange}
+			/> */}
+			{/* <label htmlFor="email">Email</label> */}
+			<InputField
 				type="email"
 				name="email"
 				id="email"
 				value={userData.email}
 				onChange={handleChange}
+				label="Email"
 			/>
-			<label htmlFor="password">Password</label>
-			<input
+			{/* <input
+				type="email"
+				name="email"
+				id="email"
+				value={userData.email}
+				onChange={handleChange}
+			/> */}
+			{/* <label htmlFor="password">Password</label> */}
+			<InputField
 				type="password"
 				name="password"
 				id="password"
 				value={userData.password}
 				onChange={handleChange}
+				label="Password"
 			/>
-			<label htmlFor="confirmPassword">Confirm Password</label>
-			<input
+			{/* <input
+				type="password"
+				name="password"
+				id="password"
+				value={userData.password}
+				onChange={handleChange}
+			/> */}
+			{/* <label htmlFor="confirmPassword">Confirm Password</label> */}
+			<InputField
 				type="password"
 				name="confirmPassword"
 				id="confirmPassword"
 				value={userData.confirmPassword}
 				onChange={handleChange}
+				label="Confirm Password"
 			/>
-			<div css={{
-				gridColumn: "span 2"
-			}}>
+			{/* <input
+				type="password"
+				name="confirmPassword"
+				id="confirmPassword"
+				value={userData.confirmPassword}
+				onChange={handleChange}
+			/> */}
+			<div
+				css={{
+					gridColumn: "span 2",
+				}}
+			>
 				<Button type="submit" disabled={disabled}>
 					Sign Up
 				</Button>
 			</div>
-			<div css={{
-				gridColumn: "span 2"
-			}}>
+			<div
+				css={{
+					gridColumn: "span 2",
+				}}
+			>
 				<p className="error-message">{error}</p>
 			</div>
-			<div css={{
-				gridColumn: "span 2"
-			}}>
+			<div
+				css={{
+					gridColumn: "span 2",
+				}}
+			>
 				<Link to="/login">Already have an account? Log in here</Link>
 			</div>
 		</form>

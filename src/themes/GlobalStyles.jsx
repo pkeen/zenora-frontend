@@ -114,6 +114,7 @@ const GlobalStyles = ({ theme }) => {
 		*::before,
 		*::after {
 			box-sizing: border-box;
+			box-shadow: none;
 		}
 		body {
 			background-color: ${theme.backgroundColor};

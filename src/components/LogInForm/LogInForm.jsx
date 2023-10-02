@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import * as userService from "../../utils/users-service";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../Button";
-
+import InputField from "../InputField";
 
 const LogInForm = ({ setUser }) => {
 	const [userData, setUserData] = useState({
@@ -29,7 +29,7 @@ const LogInForm = ({ setUser }) => {
 			navigate("/");
 		} catch (err) {
 			console.log(err);
-			setError(err.message)
+			setError(err.message);
 		}
 	};
 
@@ -37,37 +37,57 @@ const LogInForm = ({ setUser }) => {
 		<form
 			onSubmit={handleSubmit}
 			css={{
-				display: "grid",
-				gridTemplateColumns: "1fr 1fr",
+				display: "flex",
+				flexDirection: "column",
 				width: "400px",
 				textAlign: "center",
 			}}
 		>
 			<h1 css={{ gridColumn: "span 2" }}>Log in</h1>
-			<label htmlFor="email">Email</label>
+			{/* <label htmlFor="email">Email</label>
 			<input
 				type="email"
 				name="email"
 				id="email"
 				value={userData.email}
 				onChange={handleChange}
+			/> */}
+			<InputField
+				type="email"
+				name="email"
+				id="email"
+				value={userData.email}
+				onChange={handleChange}
+				label="Email"
 			/>
-			<label htmlFor="password">Password</label>
+			<InputField
+				type="password"
+				name="password"
+				id="password"
+				value={userData.password}
+				onChange={handleChange}
+				label="Password"
+			/>
+			{/* <label htmlFor="password">Password</label>
 			<input
 				type="password"
 				name="password"
 				id="password"
 				value={userData.password}
 				onChange={handleChange}
-			/>
+			/> */}
 			<div
 				css={{
 					gridColumn: "span 2",
 				}}
 			>
-				<Button type="submit" size="md">Log In</Button>
+				<Button type="submit" size="md">
+					Log In
+				</Button>
 			</div>
-			<p className="error-message" css={{gridColumn: 'span 2'}}>{error}</p>
+			<p className="error-message" css={{ gridColumn: "span 2" }}>
+				{error}
+			</p>
 			<div css={{ gridColumn: "span 2" }}>
 				<Link to="/">New here? Sign up</Link>
 			</div>
