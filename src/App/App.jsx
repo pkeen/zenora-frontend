@@ -47,7 +47,11 @@ const App = () => {
 			>
 				<MarginWrapper>
 					<NavBar user={user} />
-					<main>
+					<main css={{
+						display: 'flex',
+						justifyContent: 'center',
+						width: '100%'
+					}}>
 						<Routes>
 							<Route path="/courses" element={<CoursesPage />} />
 							<Route

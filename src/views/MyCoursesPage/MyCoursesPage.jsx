@@ -2,6 +2,7 @@ import React, { useState , useContext } from "react";
 import * as coursesAPI from "../../utils/courses-api";
 import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 import CourseListExperimental from "../../components/CourseListExperimental/CourseListExperimental";
+import CourseList from "../../components/CourseList/CourseList";
 import { UserContext } from "../../App/App";
 import H1 from "../../components/Typography/H1";
 import Typography from "../../components/Typography/Typography";
@@ -17,10 +18,20 @@ const MyCoursesPage = () => {
 	}
 
 	return (
-		<div>
-			<Typography variant={'h1'}>Courses Page</Typography>
+		<div css={{ width: "100%" }}>
+			<div
+				css={{
+					padding: "3rem",
+				}}
+			>
+				<Typography variant={"h1"}>My Courses</Typography>
+			</div>
 			<ErrorBoundary fallback={<p>uh oh!</p>}>
-				<CourseListExperimental courses={courses} setCourses={setCourses} apiCall={dataAPICall}/>
+				<CourseList
+					courses={courses}
+					setCourses={setCourses}
+					apiCall={dataAPICall}
+				/>
 			</ErrorBoundary>
 		</div>
 	);

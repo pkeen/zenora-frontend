@@ -57,6 +57,13 @@ const theme = {
 		a: {
 			fontSize: "1rem 0",
 		},
+		input: {
+			backgroundColor: "transparent",
+			transition: "background 0.5 ease",
+		},
+		textArea: {
+			backgroundColor: "transparent",
+		},
 	},
 	border: {
 		radius: {
@@ -79,6 +86,7 @@ theme.globals = {
 	},
 	body: {
 		backgroundColor: theme.colors.grey[500],
+		transition: "background 0.5 ease",
 	},
 	"*": {
 		transition: "background 0.5 ease",

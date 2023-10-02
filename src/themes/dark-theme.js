@@ -31,6 +31,11 @@ let darkTheme = merge({}, defaultTheme, {
 		label: {
 			color: defaultTheme.colors.grey[500],
 		},
+		input: {
+			backgroundColor: defaultTheme.colors.grey[900],
+			color: defaultTheme.colors.grey[400],
+		}
+
 	},
 	globals: {
 		body: {

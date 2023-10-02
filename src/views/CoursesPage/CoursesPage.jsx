@@ -16,7 +16,7 @@ const CoursesPage = () => {
 		};
 
 	return (
-		<div>
+		<div css={{width: '100%'}}>
 			<div css={{
 				padding: '3rem'
 			}}>

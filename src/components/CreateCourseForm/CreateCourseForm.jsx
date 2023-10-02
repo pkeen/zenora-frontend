@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { create } from "../../utils/courses-api";
 import { Navigate, useNavigate } from "react-router-dom";
+import InputField from "../InputField";
+import TextAreaField from "../TextAreaField";
+import Button from "../Button";
 
 const CreateCourseForm = () => {
 	const [courseData, setCourseData] = useState({
 		title: "",
+		description: "",
 	});
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
@@ -13,7 +17,7 @@ const CreateCourseForm = () => {
 		setCourseData((prev) => {
 			return { ...prev, [e.target.name]: e.target.value };
 		});
-        setError('');
+		setError("");
 	};
 
 	const handleSubmit = async (e) => {
@@ -28,16 +32,25 @@ const CreateCourseForm = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<label htmlFor="title">Title</label>
-			<input
+		<form onSubmit={handleSubmit} css={{ width: "400px" }}>
+			<InputField
 				type="text"
 				name="title"
 				id="title"
 				value={courseData.title}
 				onChange={handleChange}
+				label="Title"
 			/>
-			<button type="submit">Create</button>
+			<TextAreaField
+				name="description"
+				id="description"
+				label="description"
+				value={courseData.description}
+				onChange={handleChange}
+			/>
+			<Button type="submit" variant="sm">
+				Create
+			</Button>
 			<p>{error}</p>
 		</form>
 	);
