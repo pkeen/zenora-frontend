@@ -9,6 +9,7 @@ const CreateCourseForm = () => {
 	const [courseData, setCourseData] = useState({
 		title: "",
 		description: "",
+		price: 0
 	});
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
@@ -44,8 +45,35 @@ const CreateCourseForm = () => {
 			<TextAreaField
 				name="description"
 				id="description"
-				label="description"
+				label="Description"
 				value={courseData.description}
+				onChange={handleChange}
+			/>
+			<div
+				css={{
+					display: "flex",
+					flexDirection: "column",
+					textAlign: "left",
+				}}
+			>
+				<label htmlFor="isPublished">Published Status</label>
+				<div>
+					<select
+						name="isPublished"
+						id="isPublished"
+						css={{ padding: ".5rem", borderRadius: ".5rem" }}
+					>
+						<option value="false">Draft</option>
+						<option value="true">Published</option>
+					</select>
+				</div>
+			</div>
+			<InputField
+				type="number"
+				name="price"
+				id="price"
+				label="Price"
+				value={courseData.price}
 				onChange={handleChange}
 			/>
 			<Button type="submit" variant="sm">

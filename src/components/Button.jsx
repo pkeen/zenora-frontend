@@ -25,6 +25,7 @@ const Button = ({
 		fontWeight: "700",
 		"&:hover": {
 			backgroundColor: theme.colors.grey[600],
+			cursor: "pointer"
 		},
 		"&:active": {
 			backgroundColor: theme.colors.grey[700],
@@ -40,6 +41,7 @@ const Button = ({
 				transition: "border 1.8 ease",
 				"&:hover": {
 					borderColor: theme.colors.grey[400],
+					cursor: "pointer",
 				},
 			};
 			css = { ...css, ...extraCss };

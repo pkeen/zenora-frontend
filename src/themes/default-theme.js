@@ -64,6 +64,9 @@ const theme = {
 		textArea: {
 			backgroundColor: "transparent",
 		},
+		select: {
+			backgroundColor: "transparent",
+		}
 	},
 	border: {
 		radius: {

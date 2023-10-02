@@ -13,7 +13,7 @@ const IconButton = ({
 	const theme = useTheme();
 
 	let css = {
-        display: 'flex',
+		display: "flex",
 		padding: "0rem",
 		borderRadius: "3rem",
 		border: "none",
@@ -27,6 +27,7 @@ const IconButton = ({
 		fontWeight: "700",
 		"&:hover": {
 			backgroundColor: theme.colors.grey[600],
+			cursor: "pointer",
 		},
 		"&:active": {
 			backgroundColor: theme.colors.grey[700],
@@ -42,6 +43,7 @@ const IconButton = ({
 				transition: "border 1.8 ease",
 				"&:hover": {
 					borderColor: theme.colors.grey[400],
+					cursor: "pointer",
 				},
 			};
 			css = { ...css, ...extraCss };
