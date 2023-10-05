@@ -1,5 +1,7 @@
 import React from 'react';
 import { useTheme } from '@emotion/react';
+import { ArrowDropDownCircle } from '@mui/icons-material';
+import { ArrowDropDown } from '@mui/icons-material';
 
 const NavButton = ({handleClick, className, children, variant}) => {
 
@@ -16,7 +18,12 @@ const NavButton = ({handleClick, className, children, variant}) => {
         "&:hover": {
             fontWeight: '700',
             color: theme.components.navPanel.hover.color
-        }
+        },
+        display: 'flex',
+        justifyContent: "start",
+        alignItems: "center",
+        cursor: "pointer"
+
     }
 
     if (variant === "module") {
@@ -29,7 +36,7 @@ const NavButton = ({handleClick, className, children, variant}) => {
     return (
         <button className={className} css={css} onClick={handleClick}>
             {children}
-
+            {variant === "module" && <ArrowDropDown fontSize="small"/>}
         </button>
     );
 }

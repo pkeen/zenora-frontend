@@ -25,6 +25,7 @@ const MarginWrapper = ({ children }) => {
 				flex: '1',
 				display: "flex",
 				flexDirection: "column",
+				justifyContent: "start",
 				border: '1px solid green', 
 				// flex: '1'
 			}}

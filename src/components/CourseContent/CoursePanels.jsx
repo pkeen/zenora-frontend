@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from '@emotion/react';
 
 
-const CoursePanels = ({left, right}) => {
+const CoursePanels = ({children}) => {
 
 	const theme = useTheme();
 
@@ -14,20 +14,9 @@ const CoursePanels = ({left, right}) => {
             // border: '1px solid red', 
             justifyContent: 'space-between',
             alignItems: 'space-between',
-			border: '2px solid black'
+			// border: '2px solid black'
         }}>
-			<div
-				css={{
-					width: "300px",
-					backgroundColor: theme.components.navPanel.backgroundColor,
-					color: theme.components.navPanel.color
-				}}
-			>
-				{left}
-			</div>
-			<div css={{
-                flex: '1'
-            }}>{right}</div>
+			{children}
 		</div>
 	);
 }

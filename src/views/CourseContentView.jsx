@@ -8,6 +8,7 @@ import * as modulesApi from "../utils/modules-api";
 import LessonContent from "./LessonContent";
 import ModuleContent from "./ModuleContent";
 import CoursePanels from "../components/CourseContent/CoursePanels";
+import CourseContentHeader from "../components/CourseContent/CourseContentHeader";
 
 const CourseContentView = () => {
 	const [course, setCourse] = useState();
@@ -48,28 +49,32 @@ const CourseContentView = () => {
 		return (
 			<div
 				css={{
-					width: "100%",
-					height: '100%',
-					border: '1px dashed cyan', 
+					// width: "100%",
+					// height: "100%",
+					flex: "1",
+					// border: "1px dashed cyan",
+					display: "flex",
+					flexDirection: "column",
 				}}
 			>
-				<h1 css={{ textAlign: "left" }}>{course.title}</h1>
-				<CoursePanels
-					left={
-						<CourseContentNav
-							courseSlots={course.CourseSlots}
-							// css={{ border: "1px solid red" }}
-							handleSelectContent={handleSelectContent}
-						/>
-					}
-					right={<CourseContentBox content={currentContent} />}
-				>
-					{/* <CourseContentNav
+				<CourseContentHeader>
+					<h1 css={{ textAlign: "left" }}>{course.title}</h1>
+				</CourseContentHeader>
+				<CoursePanels>
+					<CourseContentNav
 						courseSlots={course.CourseSlots}
-						css={{ border: "1px solid red" }}
+						// css={{ border: "1px solid red" }}
 						handleSelectContent={handleSelectContent}
 					/>
-					<CourseContentBox content={currentContent} /> */}
+
+					<CourseContentBox content={currentContent} />
+
+					{/* <CourseContentNav
+							courseSlots={course.CourseSlots}
+							css={{ border: "1px solid red" }}
+							handleSelectContent={handleSelectContent}
+						/>
+						<CourseContentBox content={currentContent} /> */}
 				</CoursePanels>
 			</div>
 		);

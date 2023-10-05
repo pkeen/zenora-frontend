@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CourseContentNav from "./CourseContentNav";
 
 const CourseContentBox = ({ content }) => {
-	return <div css={{ border: "1px solid blue" }}>{content}</div>;
+	return <div css={{ flex: '1', display: 'flex'}}>{content}</div>;
 };
 
 export default CourseContentBox;
