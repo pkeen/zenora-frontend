@@ -43,6 +43,12 @@ let darkTheme = merge({}, defaultTheme, {
 		body: {
 			backgroundColor: defaultTheme.colors.grey[900],
 		},
+		components: {
+			navPanel: {
+				backgroundColor: defaultTheme.colors.grey[800],
+				color: defaultTheme.colors.grey[200]
+			},
+		},
 	},
 });
 

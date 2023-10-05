@@ -21,6 +21,12 @@ const MarginWrapper = ({ children }) => {
 				// [theme.breakpoints.xl.higher]: {
 				// 	margin: "0 9rem",
 				// },
+				minHeight: '100%',
+				flex: '1',
+				display: "flex",
+				flexDirection: "column",
+				border: '1px solid green', 
+				// flex: '1'
 			}}
 		>
 			

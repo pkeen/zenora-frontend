@@ -9,6 +9,7 @@ import NavigationMenu from "../NavigationMenu";
 import { css } from "@emotion/react";
 import Hamburger from "../Hamburger";
 import { useTheme } from "@emotion/react";
+import MarginWrapper from "../MarginWrapper";
 
 const NavBar = ({ user }) => {
 	const [isMobile, setIsMobile] = useState();
@@ -22,59 +23,63 @@ const NavBar = ({ user }) => {
 	};
 
 	return (
-		<nav
-			css={{
-				display: "flex",
-				justifyContent: "space-between",
-				alignItems: "center",
-				padding: "1rem 0",
-				position: "sticky",
-				top: 0,
-				zIndex: 1000, // Ensure the navbar stays above other content
-				transition: "background-color 0.5 ease",
-			}}
-		>
-			<div
-				css={{
-					display: "flex",
-					alignItems: "center",
-					div: {
-						marginRight: "1rem",
-					},
-				}}
-			>
-				<Logo />
-				<NavigationMenu
-					css={[
-						hideSmallCss,
-						{
-							a: {
+		<nav>
+			<MarginWrapper>
+				<div
+					css={{
+						display: "flex",
+						justifyContent: "space-between",
+						alignItems: "center",
+						padding: "1rem 0",
+						position: "sticky",
+						top: 0,
+						zIndex: 1000, // Ensure the navbar stays above other content
+						transition: "background-color 0.5 ease",
+					}}
+				>
+					<div
+						css={{
+							display: "flex",
+							alignItems: "center",
+							div: {
 								marginRight: "1rem",
 							},
-						},
-					]}
-				/>
-			</div>
+						}}
+					>
+						<Logo />
+						<NavigationMenu
+							css={[
+								hideSmallCss,
+								{
+									a: {
+										marginRight: "1rem",
+									},
+								},
+							]}
+						/>
+					</div>
 
-			{/**
-			 * Hamburger or Button Row at sm +
-			 */}
+					{/**
+					 * Hamburger or Button Row at sm +
+					 */}
 
-			<div
-				css={css`
-					display: flex;
-					align-items: center;
-					div {
-						margin-left: 0.75rem;
-					}
-				`}
-			>
-				<ThemeSelector css={hideSmallCss} />
-				{!user && <LogInNavButton css={hideSmallCss} />}
-				{!user && <SignUpNavButton css={hideSmallCss} />}
-				{user && <LogOutButton css={hideSmallCss} />}
-				<Hamburger />
-			</div>
+					<div
+						css={css`
+							display: flex;
+							align-items: center;
+							div {
+								margin-left: 0.75rem;
+							}
+						`}
+					>
+						<ThemeSelector css={hideSmallCss} />
+						{!user && <LogInNavButton css={hideSmallCss} />}
+						{!user && <SignUpNavButton css={hideSmallCss} />}
+						{user && <LogOutButton css={hideSmallCss} />}
+						<Hamburger />
+					</div>
+				</div>
+			</MarginWrapper>
 		</nav>
 	);
 };

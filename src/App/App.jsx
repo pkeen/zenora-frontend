@@ -45,13 +45,18 @@ const App = () => {
 			<PurchasedCoursesContext.Provider
 				value={{ orderedCourses, setOrderedCourses }}
 			>
-				<MarginWrapper>
-					<NavBar user={user} />
-					<main css={{
-						display: 'flex',
-						justifyContent: 'center',
-						width: '100%'
-					}}>
+				<NavBar user={user} />
+				<main
+					css={{
+						display: "flex",
+						justifyContent: "center",
+						width: "100%",
+						minHeight: "100%",
+						border: "1px solid green",
+						flexGrow: "1",
+					}}
+				>
+					<MarginWrapper>
 						<Routes>
 							<Route path="/courses" element={<CoursesPage />} />
 							<Route
@@ -80,8 +85,8 @@ const App = () => {
 								/>
 							)}
 						</Routes>
-					</main>
-				</MarginWrapper>
+					</MarginWrapper>
+				</main>
 			</PurchasedCoursesContext.Provider>
 		</UserContext.Provider>
 	);

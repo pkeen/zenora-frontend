@@ -34,12 +34,14 @@ body {
 	place-items: center;
 	width: 100vw;
 	min-height: 100vh;
+	border: 1px solid purple;
 }
 
 #root {
 	width: 100vw;
 	min-height: 100vh;
 	margin: 0 auto;
+	display: flex;
 	/* padding: 2rem; */
 	text-align: center;
 }

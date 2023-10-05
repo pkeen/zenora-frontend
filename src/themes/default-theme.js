@@ -94,6 +94,11 @@ theme.globals = {
 	"*": {
 		transition: "background 0.5 ease",
 	},
+	components: {
+		navPanel: {
+			backgroundColor: theme.colors.grey[200]
+		},
+	},
 	...theme.typography,
 };
 

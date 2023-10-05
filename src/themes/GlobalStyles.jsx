@@ -126,12 +126,18 @@ const GlobalStyles = ({ theme }) => {
 			min-height: 100vh;
 			color: ${theme.textColor}; // this should mostly be overriden
 		}
+		html {
+			height: 100%;
+		}
 		#root {
 			width: 100vw;
 			min-height: 100vh;
 			/* margin: 0 auto; */
 			/* padding: 2rem; */
 			text-align: center;
+			display: flex;
+			flex-direction: column
+			/* border: 1px solid orange; */
 		}
 
 		a {
