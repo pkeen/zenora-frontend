@@ -58,7 +58,7 @@ const CourseContentView = () => {
 					left={
 						<CourseContentNav
 							courseSlots={course.CourseSlots}
-							css={{ border: "1px solid red" }}
+							// css={{ border: "1px solid red" }}
 							handleSelectContent={handleSelectContent}
 						/>
 					}

@@ -1,10 +1,16 @@
 import React from 'react';
+import NavButton from './NavButton';
 
 const NavLesson = ({lesson, handleSelectContent}) => {
+
+    const handleClick = () => {
+        handleSelectContent(lesson.id, "lesson")
+    }
+    // onClick={() => handleSelectContent(lesson.id, "lesson")}
     return (
-        <div onClick={() => handleSelectContent(lesson.id, "lesson")} value={lesson.title}>
+        <NavButton handleClick={handleClick} value={lesson.title}>
             {lesson.title}
-        </div>
+        </NavButton>
     );
 }
 

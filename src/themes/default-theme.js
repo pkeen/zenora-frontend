@@ -94,12 +94,17 @@ theme.globals = {
 	"*": {
 		transition: "background 0.5 ease",
 	},
-	components: {
-		navPanel: {
-			backgroundColor: theme.colors.grey[200]
-		},
-	},
 	...theme.typography,
+};
+
+theme.components = {
+	navPanel: {
+		backgroundColor: theme.colors.grey[200],
+		color: theme.colors.grey[700],
+		hover: {
+			color: theme.colors.grey[600]
+		}
+	},
 };
 
 export default theme;

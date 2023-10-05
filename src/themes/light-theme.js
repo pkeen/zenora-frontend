@@ -37,6 +37,11 @@ const lightTheme = merge({}, defaultTheme, {
 			backgroundColor: defaultTheme.colors.grey[50],
 		},
 	},
+	components: {
+		navPanel: {
+			color: defaultTheme.colors.grey[700]
+		}
+	}
 });
 
 lightTheme.globals = merge(lightTheme.globals, lightTheme.typography);

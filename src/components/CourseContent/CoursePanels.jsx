@@ -19,8 +19,8 @@ const CoursePanels = ({left, right}) => {
 			<div
 				css={{
 					width: "300px",
-					backgroundColor: theme.globals.components.navPanel.backgroundColor,
-					color: theme.globals.components.navPanel.color
+					backgroundColor: theme.components.navPanel.backgroundColor,
+					color: theme.components.navPanel.color
 				}}
 			>
 				{left}
